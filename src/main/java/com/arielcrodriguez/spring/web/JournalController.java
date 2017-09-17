@@ -15,16 +15,16 @@ import com.arielcrodriguez.spring.repository.JournalRepository;
 public class JournalController {
 	@Autowired
 	JournalRepository repo;
-	
+
 	@RequestMapping("/")
 	public String index(Model model) {
 		model.addAttribute("journal", repo.findAll());
 		return "index";
 	}
-	
-	@RequestMapping(value="/journal", produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
-	public @ResponseBody List<Journal> getJournal(){
-	return repo.findAll();
+
+	@RequestMapping(value = "/journal", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
+	public @ResponseBody List<Journal> getJournal() {
+		return repo.findAll();
 	}
-	
+
 }
